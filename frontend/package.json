@@ -12,6 +12,7 @@
     "smui-theme-dark": "smui-theme compile src/build/smui-dark.css -i src/theme/dark"
   },
   "devDependencies": {
+    "@smui/top-app-bar": "^7.0.0-beta.15",
     "@sveltejs/vite-plugin-svelte": "^3.0.0",
     "sass": "^1.69.5",
     "smui-theme": "^7.0.0-beta.15",
