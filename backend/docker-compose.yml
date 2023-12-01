@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  server:
+    build: .
+    restart: always
+    ports:
+      - ${SERVER_PORT}:${SERVER_PORT}
+    env_file:
+      - .env
+    depends_on:
+      - database
+    networks:
+      - haseus
+
+  database:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: haseus
+    ports:
+      - 5432:5432
+    networks:
+      - haseus
+
+networks:
+  haseus:
