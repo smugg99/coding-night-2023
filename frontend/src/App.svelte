@@ -6,12 +6,11 @@
 <main>
   <h1>Haseus</h1>
 
-
   <p>
   Help The Others During Crises
   </p>
 
-<button type="button">login</button>
-<button type="button">register</button>
+	<button type="button" >login</button>
+	<button type="button" >register</button>
 
 </main>
