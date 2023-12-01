@@ -1,5 +1,5 @@
 {
-  "name": "coding-night-2023-frontend",
+  "name": "frontend",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,20 +7,25 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
     "prepare": "npm run smui-theme-light && npm run smui-theme-dark",
     "smui-theme-light": "smui-theme compile src/build/smui.css -i src/theme/light",
     "smui-theme-dark": "smui-theme compile src/build/smui-dark.css -i src/theme/dark"
   },
   "devDependencies": {
-    "@smui/top-app-bar": "^7.0.0-beta.15",
-    "@sveltejs/vite-plugin-svelte": "^3.0.0",
-    "sass": "^1.69.5",
-    "smui-theme": "^7.0.0-beta.15",
-    "svelte": "^4.2.3",
-    "vite": "^5.0.4",
-    "vite-plugin-sass": "^0.1.0"
+    "@sveltejs/vite-plugin-svelte": "^3.0.1",
+    "@tsconfig/svelte": "^5.0.2",
+    "svelte": "^4.2.8",
+    "svelte-check": "^3.6.0",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.4"
   },
   "dependencies": {
-    "@material/dom": "^14.0.0"
+    "@material/dom": "^14.0.0",
+    "@smui/top-app-bar": "^7.0.0-beta.15",
+    "sass": "^1.69.5",
+    "smui-theme": "^7.0.0-beta.15",
+    "vite-plugin-sass": "^0.1.0"
   }
 }
