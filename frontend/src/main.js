@@ -1,4 +1,4 @@
-import './app.css'
+import './build/smui.css'
 import App from './App.svelte'
 
 const app = new App({

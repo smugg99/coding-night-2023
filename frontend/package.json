@@ -6,13 +6,20 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "npm run smui-theme-light && npm run smui-theme-dark",
+    "smui-theme-light": "smui-theme compile src/build/smui.css -i src/theme/light",
+    "smui-theme-dark": "smui-theme compile src/build/smui-dark.css -i src/theme/dark"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^3.0.0",
     "sass": "^1.69.5",
+    "smui-theme": "^7.0.0-beta.15",
     "svelte": "^4.2.3",
     "vite": "^5.0.4",
     "vite-plugin-sass": "^0.1.0"
+  },
+  "dependencies": {
+    "@material/dom": "^14.0.0"
   }
 }
