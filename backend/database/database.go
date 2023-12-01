@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/smugg99/coding-night-2023/config"
+	"github.com/smugg99/coding-night-2023/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -23,9 +24,8 @@ func Setup() (*gorm.DB, error) {
 	}
 
 	db.AutoMigrate(
-	// Put your models here like this
-	// &models.MySampleModel{}
-	)
+        &models.User{},
+    )
 
 	return db, nil
 }

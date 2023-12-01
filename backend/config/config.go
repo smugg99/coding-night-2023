@@ -1,6 +1,11 @@
 package config
 
+import "crypto/rsa"
+
 var Conf *Config
+
+// for jwt
+var PrivateKey *rsa.PrivateKey
 
 type DatabaseConfig struct {
 	Host     string `env:"HOST"`

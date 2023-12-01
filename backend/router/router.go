@@ -1,14 +1,18 @@
 package router
 
 import (
-	"github.com/smugg99/coding-night-2023/config"
-	"github.com/smugg99/coding-night-2023/controllers"
+	"crypto/rand"
+	"crypto/rsa"
+
+	jwtware "github.com/gofiber/contrib/jwt"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/compress"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/gofiber/fiber/v2/middleware/monitor"
 	"github.com/gofiber/fiber/v2/middleware/recover"
+	"github.com/smugg99/coding-night-2023/config"
+	"github.com/smugg99/coding-night-2023/controllers"
 	"gorm.io/gorm"
 )
 
@@ -29,13 +33,32 @@ func Setup(db *gorm.DB) *fiber.App {
 	a.Get("/monitor", monitor.New(monitor.Config{
 		Title: "Backend monitor stats",
 	}))
+ 
+    // JWT
+    rng := rand.Reader
+    var err error
+    config.PrivateKey, err = rsa.GenerateKey(rng, 2048)
+    if err != nil {
+        panic(err)
+    }
+    jwtMiddleware := jwtware.New(jwtware.Config{
+        SigningKey: jwtware.SigningKey{
+            JWTAlg: jwtware.RS256,
+            Key:    config.PrivateKey.Public(),
+        },
+    })
 
 	// Controller
 	api := controllers.Controller{Db: db}
 
 	// Routing
-	// Connect routes here
-	_ = api // Remove later
+    auth := a.Group("/auth")
+    {
+        auth.Post("/login", api.Login)
+        auth.Post("/register", api.Register)
+    }
+
+    _ = jwtMiddleware
 
 	return a
 }
