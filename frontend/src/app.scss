@@ -13,16 +13,16 @@ $md-secondary-dark: darken($md-secondary, 15%);
 
 $md-background: $background;
 
-$md-theme: (
-  primary: $md-primary,
-  primary-light: $md-primary-light,
-  primary-dark: $md-primary-dark,
-  secondary: $md-secondary,
-  secondary-light: $md-secondary-light,
-  secondary-dark: $md-secondary-dark,
-  background: $md-background,
-);
+@mixin md-theme {
+  primary: $md-primary;
+  primary-light: $md-primary-light;
+  primary-dark: $md-primary-dark;
+  secondary: $md-secondary;
+  secondary-light: $md-secondary-light;
+  secondary-dark: $md-secondary-dark;
+  background: $md-background;
+};
 
 @use '~@material/theme' with (
-  $md-theme
+  @include md-theme;
 );
