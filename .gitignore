@@ -2,3 +2,4 @@
 .env
 !.env.example
 frontend/src/theme
+frontend/src/build
