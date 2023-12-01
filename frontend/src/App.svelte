@@ -1,31 +1,17 @@
-<script>
-</script>
+<head>
+	<link rel="stylesheet" href="app.css">
+	<link rel="stylesheet" href="app.scss">
+</head>
 
 <main>
-  <div>
-  </div>
-  <h1>frontend</h1>
+  <h1>Haseus</h1>
+
 
   <p>
-  muj frontend
+  Help The Others During Crises
   </p>
 
-</main>
+<button type="button">login</button>
+<button type="button">register</button>
 
-<style>
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-  }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
-  .read-the-docs {
-    color: #888;
-  }
-</style>
+</main>
