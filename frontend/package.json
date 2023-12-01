@@ -13,6 +13,7 @@
     "smui-theme-dark": "smui-theme compile src/build/smui-dark.css -i src/theme/dark"
   },
   "devDependencies": {
+    "@smui/top-app-bar": "^7.0.0-beta.15",
     "@sveltejs/vite-plugin-svelte": "^3.0.1",
     "@tsconfig/svelte": "^5.0.2",
     "smui-theme": "^7.0.0-beta.15",
@@ -24,9 +25,12 @@
   },
   "dependencies": {
     "@material/dom": "^14.0.0",
-    "@smui/top-app-bar": "^7.0.0-beta.15",
+    "@smui/checkbox": "^7.0.0-beta.15",
+    "@smui/drawer": "^7.0.0-beta.15",
+    "@smui/form-field": "^7.0.0-beta.15",
+    "@smui/icon-button": "^7.0.0-beta.15",
     "sass": "^1.69.5",
-    "svelte-map-leaflet": "^0.5.0",
+    "smui-theme": "^7.0.0-beta.15",
     "vite-plugin-sass": "^0.1.0"
   }
 }
