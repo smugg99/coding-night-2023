@@ -19,6 +19,7 @@ func (base *Controller) Login(c *fiber.Ctx) error {
     authenticated, dbUser := services.GetUserByCredentials(base.Db, &user)
     if authenticated {
         claims := jwt.MapClaims{
+            "id": dbUser.ID,
             "email": dbUser.Password,
             "exp": time.Now().Add(time.Hour * 72).Unix(), 
         }

@@ -58,7 +58,15 @@ func Setup(db *gorm.DB) *fiber.App {
         auth.Post("/register", api.Register)
     }
 
-    _ = jwtMiddleware
+    incident := a.Group("/incident")
+    {
+        incident.Get("/", api.Incidents)
+        incident.Post("/category", api.CreateCategory)       
+        protected := incident.Group("/").Use(jwtMiddleware)
+        {
+            protected.Post("/", api.CreateIncident)            
+        }
+    }
 
 	return a
 }

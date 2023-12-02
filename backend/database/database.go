@@ -25,6 +25,8 @@ func Setup() (*gorm.DB, error) {
 
 	db.AutoMigrate(
         &models.User{},
+        &models.Incident{},
+        &models.IncidentCategory{},
     )
 
 	return db, nil
