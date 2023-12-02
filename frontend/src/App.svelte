@@ -20,21 +20,33 @@
 		href="https://fonts.googleapis.com/css2?family=Material+Icons&Roboto+Mono:ital@0;1&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
 		rel="stylesheet"
 	/>
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+		integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+		crossorigin=""
+	/>
 </head>
 
 <script lang="ts">
 	import Navbar from './lib/Navbar.svelte';
 	import Map from './lib/Map.svelte';
+	import Drawer from './lib/Drawer.svelte';
+	import { setContext } from 'svelte';
+
+	let hamburgerOpen: boolean = false;
+
+	function toggleHamburger() {
+		hamburgerOpen = !hamburgerOpen;
+	}
+
+	setContext('toggleHamburger', toggleHamburger);
 </script>
 
-<main>
-	<Navbar>
-		
-	</Navbar>
 
-	<br>
-
-	<Map>
-		
-	</Map>
-</main>
+<body>
+	<Navbar/>
+	<Drawer open={hamburgerOpen}/>
+	<main>
+		<Map/>
+	</main>
+</body>

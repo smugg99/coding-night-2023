@@ -12,6 +12,31 @@
 	$error: color-palette.$red-700
 );
 
+/* Hide everything above this component. */
+:global(#smui-app),
+:global(body),
+:global(html) {
+	display: block !important;
+	height: auto !important;
+	width: auto !important;
+	position: relative !important;
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		color: #213547;
+		background-color: #ffffff;
+	}
+
+	a:hover {
+		color: #747bff; // Updated color for SCSS
+	}
+
+	button {
+		background-color: #f9f9f9;
+	}
+}
+
 :root {
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
@@ -25,12 +50,6 @@
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-}
-
-div#app {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
 }
 
 
@@ -51,6 +70,8 @@ a {
 body {
 	margin: 0;
 	display: flex;
+	flex-direction: column;
+	height: 100vh;
 	min-width: 320px;
 	min-height: 100vh;
 }
@@ -58,10 +79,6 @@ body {
 h1 {
 	font-size: 3.2em;
 	line-height: 1.1;
-}
-
-.card {
-	padding: 2em;
 }
 
 button {
@@ -73,44 +90,148 @@ button {
 	font-family: inherit;
 	background-color: #1a1a1a;
 	cursor: pointer;
+	user-select: none;
 	transition: border-color 0.25s;
 
 	&:hover {
 		border-color: #646cff;
 	}
+	z-index: 999;
+}
 
-	&:focus,
-	&:focus-visible {
-		outline: 4px auto -webkit-focus-ring-color;
+
+div#app {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+nav {
+	height: 64px;
+	padding: 0;
+	background-color: #333;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+main {
+	flex: 1;
+	flex-grow: 1;
+	background-color: #f0f0f0;
+	box-sizing: border-box;
+}
+
+
+// .card {
+// 	padding: 2em;
+// }
+
+.top-app-bar-container {
+	max-width: 480px;
+	padding: 0;
+	width: 100%;
+	height: 320px;
+	border: 1px solid
+	var(--mdc-theme-text-hint-on-background, rgba(0, 0, 0, 0.1));
+	margin: 0 18px 18px 0;
+	background-color: var(--mdc-theme-background, #fff);
+
+	overflow: auto;
+	display: inline-block;
+}
+
+@media (max-width: 480px) {
+	.top-app-bar-container {
+		margin-right: 0;
+		padding: 0;
 	}
 }
 
-@media (prefers-color-scheme: light) {
-	:root {
-		color: #213547;
-		background-color: #ffffff;
-	}
-
-	a:hover {
-		color: #747bff; // Updated color for SCSS
-	}
-
-	button {
-		background-color: #f9f9f9;
+@media (max-width: 599px) {
+	.mdc-top-app-bar__row {
+		height: 64px !important;
 	}
 }
 
-.map{
-    height: 400px;
-    width: 400px;
+.map {
+	height: 100%;
+	width: 100%;
+	z-index: 998;
 }
 
-/* Hide everything above this component. */
-:global(#smui-app),
-:global(body),
-:global(html) {
-	display: block !important;
-	height: auto !important;
-	width: auto !important;
-	position: static !important;
+.map :global(.map-marker) {
+	width:30px;
+	transform:translateX(-50%) translateY(-25%);
+	z-index: 998;
+}
+.map :global(.marker-text) {
+	width:100%;
+	text-align:center;
+	font-weight:600;
+	background-color:#444;
+	color:#EEE;
+	border-radius:0.5rem;
+	z-index: 998;
+}
+
+
+// .drawer-container {
+// 	position: fixed;
+// 	top: 0;
+// 	left: 0;
+// 	display: flex;
+// 	flex-direction: column;
+// 	height: 350px;
+// 	max-width: 600px;
+// 	overflow: hidden;
+// 	z-index: 9999;
+// }
+
+// * :global(.app-content) {
+// 	flex: auto;
+// 	overflow: auto;
+// 	position: relative;
+// 	flex-grow: 1;
+// }
+
+// .main-content {
+// 	overflow: auto;
+// 	padding: 16px;
+// 	height: 100%;
+// 	box-sizing: border-box;
+// }
+
+/* These classes are only needed because the
+drawer is in a container on the page. */
+.drawer-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	height: 350px;
+	max-width: 100px;
+	overflow: hidden;
+	z-index: 999;
+}
+
+* :global(.app-content) {
+	flex: auto;
+	overflow: auto;
+	position: relative;
+	flex-grow: 1;
+}
+
+.main-content {
+	flex: auto;
+	overflow: auto;
+	padding: 16px;
+	height: 100%;
+	box-sizing: border-box;
+	align-items: center;
+	justify-content: center;
 }

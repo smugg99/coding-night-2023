@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "do": "npm run smui-theme-light && npm run smui-theme-dark && vite",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
@@ -25,10 +26,14 @@
   },
   "dependencies": {
     "@material/dom": "^14.0.0",
+    "@smui/button": "^7.0.0-beta.15",
     "@smui/checkbox": "^7.0.0-beta.15",
     "@smui/drawer": "^7.0.0-beta.15",
+    "@smui/fab": "^7.0.0-beta.15",
     "@smui/form-field": "^7.0.0-beta.15",
     "@smui/icon-button": "^7.0.0-beta.15",
+    "@smui/list": "^7.0.0-beta.15",
+    "@smui/touch-target": "^7.0.0-beta.15",
     "sass": "^1.69.5",
     "smui-theme": "^7.0.0-beta.15",
     "svelte-map-leaflet": "^0.5.0",
