@@ -4,7 +4,15 @@
 
 	let map:Map;
 
-    const mapOptions = { center: [49.609841,20.703781], zoom: 16, zoomControl: false};
+
+const options = {method: 'GET', headers: {'User-Agent': 'insomnium/0.2.3'}};
+
+fetch('http://localhost:8080/incident/?lat=49.60925678752547&lon=20.697714282865814&distance=10.0', options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
+
+    const mapOptions = { center: [49.60925678752547, 20.697714282865814], zoom: 16, zoomControl: false};
     const tileUrl = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
     // const markerLatLng = [49.609841,20.703781];
     // const popupMessage = "Statue of Liberty National Monument";
