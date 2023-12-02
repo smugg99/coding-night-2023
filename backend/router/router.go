@@ -67,6 +67,11 @@ func Setup(db *gorm.DB) *fiber.App {
             protected.Post("/", api.CreateIncident)            
         }
     }
+    
+   ai := a.Group("/ai").Use(jwtMiddleware)
+    {
+        ai.Get("/", api.GetSuggestions)
+    }
 
 	return a
 }

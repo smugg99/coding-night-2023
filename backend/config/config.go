@@ -16,6 +16,7 @@ type DatabaseConfig struct {
 
 type ServerConfig struct {
 	Port         uint16 `env:"PORT"`
+    AiHost string `env:"AI_HOST"`
 	AllowOrigins string `env:"ALLOW_ORIGINS"`
 }
 

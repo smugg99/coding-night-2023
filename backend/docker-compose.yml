@@ -25,5 +25,13 @@ services:
     networks:
       - haseus
 
+  ai:
+    image: ollama/ollama
+    restart: always
+    ports:
+      - 11434:11434
+    networks:
+      - haseus
+
 networks:
   haseus:
