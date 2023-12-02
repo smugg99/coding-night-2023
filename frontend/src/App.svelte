@@ -31,21 +31,26 @@
 	import Navbar from './lib/Navbar.svelte';
 	import Map from './lib/Map.svelte';
 	import Drawer from './lib/Drawer.svelte';
+	import Login from './lib/Login.svelte';
 	import { setContext } from 'svelte';
 
 	let hamburgerOpen: boolean = false;
+	let loginOpen: boolean = false;
 
-	function toggleHamburger() {
+	setContext('toggleHamburger', () => {
 		hamburgerOpen = !hamburgerOpen;
-	}
-
-	setContext('toggleHamburger', toggleHamburger);
+	});
+	
+	setContext('toggleLogin', () => {
+		loginOpen = !loginOpen;
+	});
 </script>
 
 
 <body>
 	<Navbar/>
 	<Drawer open={hamburgerOpen}/>
+	<Login open={loginOpen}/>
 	<main>
 		<Map/>
 	</main>

@@ -14,7 +14,7 @@
 	import { getContext } from 'svelte';
 
 	let topAppBar: TopAppBar;
-	let toggleHamburger = getContext('toggleHamburger');
+	let toggleHamburger: CallableFunction = getContext('toggleHamburger');
 </script>
 
 <nav>
@@ -22,7 +22,7 @@
 	<Row>
 		<Section>
 		<Wrapper>
-			<IconButton on:click={toggleHamburger} touch>
+			<IconButton on:click={() => { toggleHamburger(); }} touch>
 				<Icon class="material-icons">menu</Icon>
 			</IconButton>
 		</Wrapper>

@@ -33,6 +33,7 @@
     "@smui/form-field": "^7.0.0-beta.15",
     "@smui/icon-button": "^7.0.0-beta.15",
     "@smui/list": "^7.0.0-beta.15",
+    "@smui/paper": "^7.0.0-beta.15",
     "@smui/touch-target": "^7.0.0-beta.15",
     "sass": "^1.69.5",
     "smui-theme": "^7.0.0-beta.15",
